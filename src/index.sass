@@ -1,0 +1,30 @@
+@use './styles/utilities'
+
+@font-face
+  font-family: satisfy
+  src: url(./assets/fonts/Satisfy-Regular.ttf)
+
+@font-face
+  font-family: Tajawal-Regular
+  src: url(./assets/fonts/Tajawal-Regular.ttf)
+
+p
+  font-family: utilities.$standardFont
+
+
+button
+   border: none
+   outline-style: none
+   background-color: orange
+   border-radius: .2em
+   transition: background-color 100ms
+   font-size: 1em
+   padding: .2em 1em .2em 1em
+   &:hover
+     background: pink
+     transition: background-color 100ms
+   &:active
+     background: orange
+
+body
+  background-color: #191614
