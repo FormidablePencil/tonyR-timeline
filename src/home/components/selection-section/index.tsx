@@ -3,12 +3,15 @@ import biographyImage from "../../../assets/imgs/autobiography.jpg";
 import timelineImage from "../../../assets/imgs/timeline.jpg";
 import booksImage from "../../../assets/imgs/books.jpg";
 import "./index.scoped.sass";
+import { useHistory } from "react-router-dom";
 
 function SelectionSection() {
   const [selected, setSelected] = useState(null);
+  let history = useHistory();
 
   const onClickHandler = (clicked) => {
     setSelected(clicked);
+    history.push(`/${clicked}`);
   };
 
   return (

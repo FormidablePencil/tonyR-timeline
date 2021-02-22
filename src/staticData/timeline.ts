@@ -7,7 +7,7 @@ const contentRows = [
     images: [
       {
         alt: "Tony Robbins",
-        image: require("../assets/imgs/tony-4.png").default,
+        image: require("../assets/imgs/tony-4.jpg").default,
         imageStyles: { width: "32em", height: "18em" },
       },
       {
@@ -25,7 +25,7 @@ Jim Rohn explained to him that happiness and success depends on what one does wi
     images: [
       {
         alt: "Tony Robbins",
-        image: require("../assets/imgs/tony-4.png").default,
+        image: require("../assets/imgs/tony-4.jpg").default,
         imageStyles: { width: "32em", height: "18em" },
       },
       {
@@ -42,7 +42,7 @@ Jim Rohn explained to him that happiness and success depends on what one does wi
     images: [
       {
         alt: "Tony Robbins",
-        image: require("../assets/imgs/tony-4.png").default,
+        image: require("../assets/imgs/tony-4.jpg").default,
         imageStyles: { width: "32em", height: "18em" },
       },
       {
@@ -59,7 +59,7 @@ Jim Rohn explained to him that happiness and success depends on what one does wi
     images: [
       {
         alt: "Tony Robbins",
-        image: require("../assets/imgs/tony-4.png").default,
+        image: require("../assets/imgs/tony-4.jpg").default,
         imageStyles: { width: "32em", height: "18em" },
       },
       {
@@ -76,7 +76,7 @@ Jim Rohn explained to him that happiness and success depends on what one does wi
     images: [
       {
         alt: "Tony Robbins",
-        image: require("../assets/imgs/tony-4.png").default,
+        image: require("../assets/imgs/tony-4.jpg").default,
         imageStyles: { width: "32em", height: "18em" },
       },
       {
@@ -93,7 +93,7 @@ Jim Rohn explained to him that happiness and success depends on what one does wi
     images: [
       {
         alt: "Tony Robbins",
-        image: require("../assets/imgs/tony-4.png").default,
+        image: require("../assets/imgs/tony-4.jpg").default,
         imageStyles: { width: "32em", height: "18em" },
       },
       {
@@ -110,7 +110,7 @@ Jim Rohn explained to him that happiness and success depends on what one does wi
     images: [
       {
         alt: "Tony Robbins",
-        image: require("../assets/imgs/tony-4.png").default,
+        image: require("../assets/imgs/tony-4.jpg").default,
         imageStyles: { width: "32em", height: "18em" },
       },
       {
@@ -127,7 +127,7 @@ Jim Rohn explained to him that happiness and success depends on what one does wi
     images: [
       {
         alt: "Tony Robbins",
-        image: require("../assets/imgs/tony-4.png").default,
+        image: require("../assets/imgs/tony-4.jpg").default,
         imageStyles: { width: "32em", height: "18em" },
       },
       {
@@ -144,7 +144,7 @@ Jim Rohn explained to him that happiness and success depends on what one does wi
     images: [
       {
         alt: "Tony Robbins",
-        image: require("../assets/imgs/tony-4.png").default,
+        image: require("../assets/imgs/tony-4.jpg").default,
         imageStyles: { width: "32em", height: "18em" },
       },
       {
@@ -161,7 +161,7 @@ Jim Rohn explained to him that happiness and success depends on what one does wi
     images: [
       {
         alt: "Tony Robbins",
-        image: require("../assets/imgs/tony-4.png").default,
+        image: require("../assets/imgs/tony-4.jpg").default,
         imageStyles: { width: "32em", height: "18em" },
       },
       {

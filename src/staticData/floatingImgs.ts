@@ -2,7 +2,7 @@ const sideImages = [
   {
     image: require('../assets/imgs/tony-6.jpeg').default,
     trans: (x, y) => `translate3d(${x / 10}px,${y / 10}px,0)`,
-    style: { position: "absolute", top: "30%", left: -10 },
+    style: { position: "absolute", top: "30%", left: 15 },
   },
   {
     image: require('../assets/imgs/TR.jpg').default,
