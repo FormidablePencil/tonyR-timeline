@@ -10,7 +10,7 @@ const calc = (x, y) => [x - window.innerWidth / 2, y - window.innerHeight / 2];
 function TopSection() {
   const [props, set]: any = useSpring(() => ({
     xy: [0, 0],
-    config: { mass: 10, tension: 550, friction: 140 },
+    config: { mass: 30, tension: 250, friction: 140 },
   }));
 
   const onClickHander = () => console.log("jump to timeline");
