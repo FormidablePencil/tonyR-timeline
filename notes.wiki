@@ -1,0 +1,12 @@
+=== plan ===
+1. catalog of tony robbins' books
+2. his timeline
+3. his bioography (or something else)
+4. 
+
+=== credit ===
+- Timeline https://www.thefamouspeople.com/profiles/tony-robbins-744.php https://www.thefamouspeople.com/profiles/tony-robbins-744.php
+
+
+=== Other ===
+- There should be a way to intercept json data or cut it out simply

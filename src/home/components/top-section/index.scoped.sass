@@ -1,6 +1,4 @@
-$regFontSize: 1.2em
-
-
+@use '../../../styles/utilities'
 
 .container
   width: 100%
@@ -9,57 +7,57 @@ $regFontSize: 1.2em
   display: flex
   align-items: center
 
-@keyframes example
-  from
-    opacity: 0
-  to
-    opacity: 1
-
 img.center-img
   z-index: 1
   position: absolute
-  left: 30%
+  left: 25%
   object-position: -70px 0px
   width: 20em
   height: 30em
   object-fit: cover
   opacity: 0
-  animation-name: example;
-  animation-duration: 4s;
-  animation-delay: 4s;
+  animation: fadeInAndUp 800ms ease-in-out
+  animation-fill-mode: forwards
+  border-radius: utilities.$borderRadius
+  filter: utilities.$imageColorFilter
 
 img.side-img
-  width: 20em
-
+  width: 10em
+  height: 10em
+  object-fit: cover
+  border-radius: utilities.$borderRadius
+  filter: utilities.$imageColorFilter
 .h
   position: absolute
   z-index: -1
-  opacity: 0
-  transition: opacity 200ms 500ms
 
 .block-of-text
   position: absolute
   z-index: 1
-  left: calc(30% + 22em)
+  left: calc(25% + 22em)
 
   h1
     font-family: satisfy
     font-size: 4em
     text-align: right
-    color: #fff
     line-height: 1
-    transform:  skew(-4deg, -4deg)
     margin-left: -4.65em
     width: 7em
-    margin-bottom: 0em
+    margin-bottom: .5em
+    animation: fadeInAndUpSkewed 800ms ease-in-out .66666666s
+    opacity: 0
+    animation-fill-mode: forwards
 
   p.about
-    color: orange
+    color: utilities.$regColor
     width: 20em
     font-family: Tajawal-Regular
-    font-size: $regFontSize
+    font-size: utilities.$regFontSize
+    opacity: 0
+    animation: fadeInAndUp 800ms ease-in-out 1.5s
+    animation-fill-mode: forwards
 
-$actionColor: blue
+$actionColor: #008EC4
 $actionColorHover: #00C7DF
 
 .action
@@ -68,6 +66,9 @@ $actionColorHover: #00C7DF
   color: $actionColor
   transition: color 200ms
   cursor: pointer
+  opacity: 0
+  animation: fadeInAndUp 800ms ease-in-out 4.5s
+  animation-fill-mode: forwards
   &:hover
     color: $actionColorHover
     transition: color 200ms

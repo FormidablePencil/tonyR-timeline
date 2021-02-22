@@ -1,15 +1,15 @@
+import SelectionSection from "./components/selection-section"
 import TopSection from "./components/top-section/TopSection"
 import './index.scoped.sass'
-import Timeline from "./components/timeline/Timeline"
 
-function Main() {
+function Home() {
   return (
     <div>
       <TopSection />
-      <Timeline />
+      <SelectionSection />
     </div>
   )
 }
 
-export default Main
+export default Home
 

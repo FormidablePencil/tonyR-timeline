@@ -10,7 +10,7 @@
 img.center-img
   z-index: 1
   position: absolute
-  left: 30%
+  left: 25%
   object-position: -70px 0px
   width: 20em
   height: 30em
@@ -25,6 +25,7 @@ img.side-img
   height: 10em
   object-fit: cover
   border-radius: utilities.$borderRadius
+  // filter: grayscale(.3) saturate(90%)
 
 .h
   position: absolute
@@ -33,13 +34,12 @@ img.side-img
 .block-of-text
   position: absolute
   z-index: 1
-  left: calc(30% + 22em)
+  left: calc(25% + 22em)
 
   h1
     font-family: satisfy
     font-size: 4em
     text-align: right
-    color: #FEF3EC
     line-height: 1
     margin-left: -4.65em
     width: 7em

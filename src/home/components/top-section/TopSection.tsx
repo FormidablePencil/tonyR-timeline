@@ -1,9 +1,9 @@
 import { useState, useEffect } from "react";
-import "./topSection.scoped.sass";
+import "./index.scoped.sass";
 import { animated, useSpring } from "react-spring";
 import { FiArrowRightCircle } from "react-icons/fi";
-import sideImages from "./staticData";
-import TR from "../../../assets/imgs/tony-clap.png";
+import sideImages from "../../../staticData/floatingImgs";
+import TR from "../../../assets/imgs/tony-clap.jpg";
 
 const calc = (x, y) => [x - window.innerWidth / 2, y - window.innerHeight / 2];
 
@@ -29,7 +29,7 @@ function TopSection() {
           fugiat nam. Sapiente nobis autem quibusdam molestias quas, totam.
         </p>
         <div className="action" onClick={onClickHander}>
-          Timeline
+          Explore
           <FiArrowRightCircle className="icon" />
         </div>
       </div>

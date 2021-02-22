@@ -1,6 +1,6 @@
 import React from "react";
-import contentRows from "./staticData";
-import "./timeline.scoped.sass";
+import contentRows from "../staticData/timeline";
+import "./index.scoped.sass";
 
 // change the dimensions of images of topSection
 
