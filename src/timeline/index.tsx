@@ -1,12 +1,15 @@
 import React from "react";
+import TopPresent from "../reusables/top-present";
 import contentRows from "../staticData/timeline";
 import "./index.scoped.sass";
+import timelineImage from "../assets/imgs/timeline.jpg"
 
 // change the dimensions of images of topSection
 
 function Timeline() {
   return (
     <div className="container">
+      <TopPresent title="Timeline" image={timelineImage} />
       <div className="timeline-content">
         <TimelineContent />
       </div>
@@ -17,12 +20,9 @@ function Timeline() {
 const TimelineContent = (): any => {
   return contentRows.map((row) => (
     <div className="row" key={row.images.toString()}>
-      <div
-        className="text-content"
-        style={{ ...row.contentStyles }}
-      >
+      <div className="text-content" style={{ ...row.contentStyles }}>
         <h2>{row.date}</h2>
-        <p className='paragraph'>{row.content}</p>
+        <p className="paragraph">{row.content}</p>
       </div>
       {row.images.map((item, index) => (
         <img
