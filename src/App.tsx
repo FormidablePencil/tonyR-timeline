@@ -1,9 +1,12 @@
 import Routes from "./Routes";
-import './index.sass'
+import "./index.sass";
+import { BrowserRouter } from "react-router-dom";
 
 function App() {
   return (
-    <Routes />
+    <BrowserRouter>
+      <Routes />
+    </BrowserRouter>
   );
 }
 

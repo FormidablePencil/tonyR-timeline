@@ -6,14 +6,15 @@ import "./index.scoped.sass";
 import { useHistory } from "react-router-dom";
 import { animateScroll as scroll } from "react-scroll";
 
-function SelectionSection() {
+function SelectionSection({ setSelectedNav }) {
   const [selected, setSelected] = useState(null);
   let history = useHistory();
 
-  const onClickHandler = (clicked) => {
+  const onClickHandler = (navigateTo) => {
     scroll.scrollToBottom();
-    setSelected(clicked);
-    setTimeout(() => history.push(`/${clicked}`), 1100);
+    setSelected(navigateTo);
+    setSelectedNav(`/${navigateTo}`);
+    setTimeout(() => history.push(`/${navigateTo}`), 1100);
   };
 
   const isBiography = selected === "biography" && "selected";

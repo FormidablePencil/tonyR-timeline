@@ -1,17 +1,6 @@
 === plan ===
-1. catalog of tony robbins' books
-2. his timeline
-3. his bioography (or something else)
-4. 
+1. everything fade out/trans out when navigating through navbar
 
 === credit ===
 - Timeline https://www.thefamouspeople.com/profiles/tony-robbins-744.php https://www.thefamouspeople.com/profiles/tony-robbins-744.php
 
-
-=== Other ===
-- There should be a way to intercept json data or cut it out simply
-
-
-On click nav option transition cards out, navigate to page then transition in
-
-use mixin to pass in var and reuse it

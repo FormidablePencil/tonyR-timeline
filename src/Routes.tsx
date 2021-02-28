@@ -1,24 +1,74 @@
-import { BrowserRouter, Route, Switch } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Route, Switch, useLocation } from "react-router-dom";
 import Biography from "./biography";
 import Books from "./books";
-import Main from "./home";
+import Home from "./home";
+import FadeAnim from "./reusables/fade-anim";
 import Navbar from "./reusables/navbar";
-import Timeline from "./timeline";
 import ScrollToTop from "./reusables/scroll-to-top";
+import Timeline from "./timeline";
 
 function Routes() {
+  const [selectedNav, setSelectedNav] = useState(null);
+  const { pathname } = useLocation();
   return (
     <div>
-      <BrowserRouter>
-        <Navbar />
-        <ScrollToTop />
-        <Switch>
-          <Route exact path="/" component={Main} />
-          <Route path="/biography" component={Biography} />
-          <Route path="/timeline" component={Timeline} />
-          <Route path="/books" component={Books} />
-        </Switch>
-      </BrowserRouter>
+      {pathname !== "/" && <Navbar setSelectedNav={setSelectedNav} />}
+      <ScrollToTop />
+      <Switch>
+        <Route
+          exact
+          path="/"
+          render={(props: any) => (
+            <Home {...props} setSelectedNav={setSelectedNav} />
+          )}
+        />
+        <Route
+          path="/biography"
+          render={(props: any) => (
+            <FadeAnim
+              fadeOut={
+                selectedNav === "/biography" ||
+                (selectedNav === null && pathname === "/biography")
+                  ? false
+                  : true
+              }
+            >
+              <Biography {...props} />
+            </FadeAnim>
+          )}
+        />
+        <Route
+          path="/timeline"
+          render={(props: any) => (
+            <FadeAnim
+              fadeOut={
+                selectedNav === "/timeline" ||
+                (selectedNav === null && pathname === "/timeline")
+                  ? false
+                  : true
+              }
+            >
+              <Timeline {...props} />
+            </FadeAnim>
+          )}
+        />
+        <Route
+          path="/books"
+          render={(props: any) => (
+            <FadeAnim
+              fadeOut={
+                selectedNav === "/books" ||
+                (selectedNav === null && pathname === "/books")
+                  ? false
+                  : true
+              }
+            >
+              <Books {...props} />
+            </FadeAnim>
+          )}
+        />
+      </Switch>
     </div>
   );
 }
