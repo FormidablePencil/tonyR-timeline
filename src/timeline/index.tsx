@@ -1,8 +1,8 @@
-import React from "react";
+import React, { useEffect } from "react";
 import TopPresent from "../reusables/top-present";
 import contentRows from "../staticData/timeline";
 import "./index.scoped.sass";
-import timelineImage from "../assets/imgs/timeline.jpg"
+import timelineImage from "../assets/imgs/timeline.jpg";
 
 // change the dimensions of images of topSection
 

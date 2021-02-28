@@ -13,3 +13,5 @@
 
 
 On click nav option transition cards out, navigate to page then transition in
+
+use mixin to pass in var and reuse it

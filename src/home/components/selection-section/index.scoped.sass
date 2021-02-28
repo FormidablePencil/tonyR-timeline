@@ -9,20 +9,24 @@
   justify-content: center
   align-items: center
   height: 100vh
+  overflow: hidden
 
 .selection-container
   display: flex
+  justify-content: space-between
+  @extend .container-width
 
   .item
     position: relative
     display: flex
     justify-content: center
+    width: 15em
+    height: 27em
 
     .image-container
       position: relative
-      width: 15em
-      height: 25em
-      margin: 3vw
+      width: 100%
+      height: 100%
       cursor: pointer
       transition: transform 600ms cubic-bezier(0.33, 1, 0.68, 1)
       &:hover
@@ -41,7 +45,7 @@
         width: 100%
         height: 100%
         background-color: rgba(0,0,0,.5)
-  
+
     h2.label
       position: absolute
       pointer-events: none
@@ -49,3 +53,47 @@
       margin: 0
       font-size: 3em
       font-family: satisfy
+
+    h2.selected-header
+      animation: header-anim 500ms
+      animation-fill-mode: forwards
+
+@mixin que-anim($anim)
+  opacity: 0
+  transition: opacity .5s
+  animation: $anim .5s
+  animation-fill-mode: forwards
+
+.que-animation-left
+  @include que-anim(transToCenter)
+
+.que-animation-right
+  @include que-anim(transToCenterOpposite)
+
+.selected
+  opacity: 1
+  transition: opacity .5s
+  z-index: 1
+  animation: scale-anim .5s .5s
+  animation-fill-mode: forwards
+
+@keyframes scale-anim
+  to
+    transform: scale(5)
+    opacity: 0
+
+@keyframes transToCenter
+  from
+    transform: translateX(0px)
+  to 
+    transform: translateX(280px)
+
+@keyframes transToCenterOpposite
+  from
+    transform: translateX(0px)
+  to 
+    transform: translateX(-280px)
+
+@keyframes header-anim
+  to
+    opacity: 0

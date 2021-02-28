@@ -1,0 +1,47 @@
+@use '../../styles/utilities'
+.outer-container
+
+.container
+  height: 3em
+  width: 100vw
+  background-color: rgba(21, 21, 21, .8)
+  display: flex
+  align-items: center
+  justify-content: center
+  position: fixed
+  z-index: 2
+  top: 0
+  transform: translateY(-3em)
+  animation: nav-trans 1s 1s
+  animation-fill-mode: forwards
+
+  .inner-container
+    display: flex
+    justify-content: flex-end
+    @extend .container-width
+
+  .nav-item
+    margin: 0 0 0 2em
+    color: white
+    text-decoration: none
+    font-weight: 500
+    p
+      color: white
+      font-family: satisfy
+      font-size: 1.3em
+
+.isHidden
+  visibility: hidden
+  background-color: red
+
+img
+  height: 5em
+  width: 5em
+  position: fixed
+  z-index: 2
+  top: 10px
+  left: 10px
+
+@keyframes nav-trans
+  to
+    transform: translateY(0px)
