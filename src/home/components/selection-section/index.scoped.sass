@@ -59,28 +59,57 @@
       animation-fill-mode: forwards
 
 @mixin que-anim($anim)
-  opacity: 0
-  transition: opacity .5s
   animation: $anim .5s
   animation-fill-mode: forwards
 
+
+.que-animation-center
+  opacity: 0
+  transition: opacity 1ms .5s
+  @include que-anim(1)
+
 .que-animation-left
+  opacity: 0
+  transition: opacity 1ms .5s
   @include que-anim(transToCenter)
 
 .que-animation-right
+  opacity: 0
+  transition: opacity 1ms .5s
   @include que-anim(transToCenterOpposite)
 
-.selected
-  opacity: 1
-  transition: opacity .5s
+
+.que-animation-center-selected
+  animation: scale-anim-center .5s .5s
   z-index: 1
-  animation: scale-anim .5s .5s
   animation-fill-mode: forwards
 
-@keyframes scale-anim
+.que-animation-left-selected
+  z-index: 1
+  animation: transToCenter .5s, scale-anim-left .5s .5s
+  animation-fill-mode: forwards
+
+.que-animation-right-selected
+  z-index: 1
+  animation: transToCenterOpposite .5s, scale-anim-right .5s .5s
+  animation-fill-mode: forwards
+
+
+@keyframes scale-anim-center
   to
     transform: scale(5)
     opacity: 0
+
+@keyframes scale-anim-left
+  to
+    transform: scale(5) translateX(60px)
+    opacity: 0
+
+@keyframes scale-anim-right
+  to
+    transform: scale(5) translateX(-60px)
+    opacity: 0
+
 
 @keyframes transToCenter
   from
@@ -88,11 +117,13 @@
   to 
     transform: translateX(280px)
 
+
 @keyframes transToCenterOpposite
   from
     transform: translateX(0px)
   to 
     transform: translateX(-280px)
+
 
 @keyframes header-anim
   to

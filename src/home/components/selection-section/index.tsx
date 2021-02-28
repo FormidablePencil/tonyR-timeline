@@ -25,7 +25,9 @@ function SelectionSection({ setSelectedNav }) {
     <div className="container" id="scroll-container">
       <div className="selection-container">
         <div
-          className={`${isBiography} ${selected && "que-animation-left"} item`}
+          className={`${selected && "que-animation-left"}${
+            isBiography ? `-${isBiography}` : ""
+          } item`}
         >
           <div
             onClick={() => onClickHandler("biography")}
@@ -37,7 +39,11 @@ function SelectionSection({ setSelectedNav }) {
           <h2 className={`${isBiography}-header label`}>Biography</h2>
         </div>
 
-        <div className={`${isTimeline} item`}>
+        <div
+          className={`${selected && "que-animation-center"}${
+            isTimeline ? `-${isTimeline}` : ""
+          } item`}
+        >
           <div
             onClick={() => onClickHandler("timeline")}
             className="image-container"
@@ -48,7 +54,11 @@ function SelectionSection({ setSelectedNav }) {
           <h2 className={`${isTimeline}-header label`}>Timeline</h2>
         </div>
 
-        <div className={`${isBooks} ${selected && "que-animation-right"} item`}>
+        <div
+          className={`${selected && "que-animation-right"}${
+            isBooks ? `-${isBooks}` : ""
+          } item`}
+        >
           <div
             onClick={() => onClickHandler("books")}
             className="image-container"
