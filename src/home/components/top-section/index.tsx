@@ -4,6 +4,7 @@ import { animated, useSpring } from "react-spring";
 import { FiArrowRightCircle } from "react-icons/fi";
 import sideImages from "../../../staticData/floatingImgs";
 import TR from "../../../assets/imgs/tony-clap.jpg";
+import { animateScroll as scroll } from "react-scroll";
 
 const calc = (x, y) => [x - window.innerWidth / 2, y - window.innerHeight / 2];
 
@@ -13,7 +14,11 @@ function TopSection() {
     config: { mass: 30, tension: 250, friction: 140 },
   }));
 
-  const onClickHander = () => console.log("jump to timeline");
+  const onClickHander = () =>
+    scroll.scrollToBottom({
+      duration: 6000,
+      smooth: "easeOutCubic",
+    });
 
   return (
     <div
