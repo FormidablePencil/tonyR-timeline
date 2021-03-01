@@ -15,7 +15,7 @@ function Routes() {
   return (
     <div>
       {pathname !== "/" ? (
-        <Navbar setSelectedNav={setSelectedNav} />
+        <Navbar selectedNav={selectedNav} setSelectedNav={setSelectedNav} />
       ) : (
         <TonyImageLogo selectedNav={selectedNav} />
       )}

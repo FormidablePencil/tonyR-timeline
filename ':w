@@ -31,16 +31,8 @@
     font-family: satisfy
     font-size: 1.3em
     cursor: pointer
-    transition: transform 300ms
     &:hover
-      transform: scale(1.1)
-      transition: transform 300ms
-
-.selected
-  transform: scale(1.1)
-  cursor: default !important
-  color: grey !important
-  transition: color 900ms
+      transform: scale(.1)
 
 .isHidden
   visibility: hidden

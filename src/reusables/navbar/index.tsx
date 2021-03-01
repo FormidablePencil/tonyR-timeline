@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { Link, useHistory, useLocation } from "react-router-dom";
 import "./index.scoped.sass";
 
-function Navbar({ setSelectedNav }) {
+function Navbar({ setSelectedNav, selectedNav }) {
   const [hideNavbar, setHideNavbar] = useState(false);
   let { pathname } = useLocation();
   let history = useHistory();
@@ -17,6 +17,20 @@ function Navbar({ setSelectedNav }) {
     setTimeout(() => history.push(navigateTo), 700);
   };
 
+  const NavItem = ({ text, navigateTo, selected }) => {
+    const navItemSelected =
+      navigateTo === selectedNav ||
+      (navigateTo === pathname && navigateTo !== selectedNav);
+    return (
+      <p
+        className={`nav-item ${selected && "selected"}`}
+        onClick={() => navigate(navigateTo)}
+      >
+        {text}
+      </p>
+    );
+  };
+
   return (
     <div className="outer-container">
       <div
@@ -26,18 +40,37 @@ function Navbar({ setSelectedNav }) {
       >
         <img src={require("../../assets/imgs/TR.png").default} alt="T.R." />
         <div className="inner-container">
-          <p className="nav-item" onClick={() => navigate("/")}>
-            Home
-          </p>
-          <p className="nav-item" onClick={() => navigate("/biography")}>
-            Biography
-          </p>
-          <p className="nav-item" onClick={() => navigate("/timeline")}>
-            Timeline
-          </p>
-          <p className="nav-item" onClick={() => navigate("/books")}>
-            Books
-          </p>
+          <NavItem
+            text="Home"
+            navigateTo="/"
+            selected={
+              selectedNav === "/" || (selectedNav === null && pathname === "/")
+            }
+          />
+          <NavItem
+            text="Biography"
+            navigateTo="/biography"
+            selected={
+              selectedNav === "/biography" ||
+              (selectedNav === null && pathname === "/biography")
+            }
+          />
+          <NavItem
+            text="Timeline"
+            navigateTo="/timeline"
+            selected={
+              selectedNav === "/timeline" ||
+              (selectedNav === null && pathname === "/timeline")
+            }
+          />
+          <NavItem
+            text="Books"
+            navigateTo="/books"
+            selected={
+              selectedNav === "/books" ||
+              (selectedNav === null && pathname === "/books")
+            }
+          />
         </div>
       </div>
     </div>
