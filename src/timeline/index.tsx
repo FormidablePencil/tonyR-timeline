@@ -19,8 +19,8 @@ function Timeline() {
 
 const TimelineContent = (): any => {
   return contentRows.map((row) => (
-    <div key={row.images.toString()}>
-      <div className="text-content" style={{ ...row.contentStyles }}>
+    <div className="container-width" key={row.images.toString()}>
+      <div className="text-content">
         <h2>{row.date}</h2>
         <p className="paragraph">{row.content}</p>
       </div>

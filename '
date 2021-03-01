@@ -109,7 +109,7 @@
   animation: transToCenterOpposite .5s, scale-anim-right .5s .5s
   animation-fill-mode: forwards
   @media (max-width: utilities.$mediumScreenEnd)
-    animation: transToCenterOppositeY .5s, scale-anim-bottom .5s .5s
+    animation: transToCenterOppositeY .5s, scale-anim-bottom .5s .9s
     animation-fill-mode: forwards
 
 
@@ -158,27 +158,27 @@
   from
     transform: translateY(0px)
   to 
-    transform: translateY(calc(30vh + 2.0em))
+    transform: translateY(35vh)
 
 @keyframes transToCenterOppositeY
   from
     transform: translateY(0px)
   to 
-    transform: translateY(calc(-30vh - 2.0em))
+    transform: translateY(-35vh)
 
 
 @keyframes transUp
   from
     transform: translateY(0px)
   to 
-    transform: translateY(calc(-30vh - 2.0em))
+    transform: translateY(-35vh)
 
 
 @keyframes transDown
   from
     transform: translateY(0px)
   to 
-    transform: translateY(calc(30vh + 2.0em))
+    transform: translateY(30vh)
 
 
 @keyframes header-anim

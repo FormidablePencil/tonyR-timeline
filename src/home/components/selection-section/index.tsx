@@ -22,7 +22,7 @@ function SelectionSection({ setSelectedNav }) {
   const isBooks = selected === "books" && "selected";
 
   return (
-    <div className="container" id="scroll-container">
+    <div className="container">
       <div className="selection-container">
         <div
           className={`${selected && "que-animation-left"}${

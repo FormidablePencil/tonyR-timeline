@@ -3,11 +3,17 @@ $regColor: #FEE7D7
 $regLightColor: #FEF3EC
 $borderRadius: .4em
 $standardFont: Tajawal-Regular
-
 $imageColorFilter: grayscale(.2) saturate(30%)
+
+$mediumScreenEnd: 825px
+$smallScreenEnd: 750px
 
 .container-width
   width: 50em
+  @media (max-width: $mediumScreenEnd)
+    margin-left: auto
+    margin-right: auto
+    width: 90%
 
 @keyframes fade
   from
