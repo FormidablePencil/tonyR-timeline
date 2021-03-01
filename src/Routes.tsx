@@ -3,6 +3,7 @@ import { Route, Switch, useLocation } from "react-router-dom";
 import Biography from "./biography";
 import Books from "./books";
 import Home from "./home";
+import TonyImageLogo from "./home/components/tony-image-logo";
 import FadeAnim from "./reusables/fade-anim";
 import Navbar from "./reusables/navbar";
 import ScrollToTop from "./reusables/scroll-to-top";
@@ -13,7 +14,11 @@ function Routes() {
   const { pathname } = useLocation();
   return (
     <div>
-      {pathname !== "/" && <Navbar setSelectedNav={setSelectedNav} />}
+      {pathname !== "/" ? (
+        <Navbar setSelectedNav={setSelectedNav} />
+      ) : (
+        <TonyImageLogo selectedNav={selectedNav} />
+      )}
       <ScrollToTop />
       <Switch>
         <Route

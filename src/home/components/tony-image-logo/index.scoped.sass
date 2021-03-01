@@ -1,0 +1,22 @@
+
+img
+  height: 5em
+  width: 6em
+  position: fixed
+  z-index: 2
+  top: 10px
+  left: 10px
+
+.que-fade-anim
+  opacity: 0
+  transition: opacity 300ms
+
+.que-fadein-anim
+  animation: fade 300ms
+  animation-direction: reverse
+
+@keyframes fade
+  from
+    opacity: 1
+  to
+    opacity: 0

@@ -8,13 +8,13 @@ function Navbar({ setSelectedNav }) {
   let history = useHistory();
 
   useEffect(() => setSelectedNav(null), [pathname, setSelectedNav]);
-  useEffect(() => setHideNavbar(false), [pathname]);
+  useEffect(() => setHideNavbar(false), [pathname, setHideNavbar]);
 
   const navigate = (navigateTo) => {
     if (navigateTo === "/") setHideNavbar(true);
     else setHideNavbar(false);
     setSelectedNav(navigateTo);
-    setTimeout(() => history.push(navigateTo), 1000);
+    setTimeout(() => history.push(navigateTo), 700);
   };
 
   return (
@@ -24,6 +24,7 @@ function Navbar({ setSelectedNav }) {
           hideNavbar ? "hide" : "show"
         } container`}
       >
+        <img src={require("../../assets/imgs/TR.png").default} alt="T.R." />
         <div className="inner-container">
           <p className="nav-item" onClick={() => navigate("/")}>
             Home
@@ -39,7 +40,6 @@ function Navbar({ setSelectedNav }) {
           </p>
         </div>
       </div>
-      <img src={require("../../assets/imgs/TR.png").default} alt="T.R." />
     </div>
   );
 }
