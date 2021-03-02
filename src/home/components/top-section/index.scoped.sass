@@ -1,12 +1,12 @@
 @use '../../../styles/utilities'
 
+.outer-container
+
 .container
-  max-width: 100%
-  // height: 100vh
-  // height: 100vh
-    /* Fallback for browsers that do not support Custom Properties */
-  height: calc(var(--vh, 1vh) * 100)
-  overflow: hidden
+  width: 100vw
+  height: 100vh
+  // height: calc(var(--vh, 1vh) * 100)
+  // overflow: hidden
   display: flex
   align-items: center
   justify-content: center
@@ -22,7 +22,7 @@ img.center-img
   height: 30em
   object-fit: cover
   opacity: 0
-  animation: fadeInAndUp 800ms ease-in-out
+  animation: fadeInAndUp 800ms 1.5s ease-in-out
   animation-fill-mode: forwards
   border-radius: utilities.$borderRadius
   filter: utilities.$imageColorFilter
@@ -79,6 +79,9 @@ img.side-img
     font-family: Tajawal-Regular
     font-size: utilities.$regFontSize
     width: 20em
+    opacity: 0
+    animation: fadeInAndUp 800ms ease-in-out 2s
+    animation-fill-mode: forwards
     @media(max-width: utilities.$smallScreenEnd)
       visibility: hidden
 

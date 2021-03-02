@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
-import { Link, useHistory, useLocation } from "react-router-dom";
-import { HiMenu } from "react-icons/hi";
 import { AiOutlineClose } from "react-icons/ai";
+import { HiMenu } from "react-icons/hi";
+import { useHistory, useLocation } from "react-router-dom";
 import "./index.scoped.sass";
 
 function Navbar({ setSelectedNav, selectedNav }) {
@@ -22,9 +22,6 @@ function Navbar({ setSelectedNav, selectedNav }) {
   };
 
   const NavItem = ({ text, navigateTo, selected }) => {
-    const navItemSelected =
-      navigateTo === selectedNav ||
-      (navigateTo === pathname && navigateTo !== selectedNav);
     return (
       <p
         className={`nav-item ${selected && "selected"}`}

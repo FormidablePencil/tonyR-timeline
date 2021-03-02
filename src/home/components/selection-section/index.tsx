@@ -17,6 +17,17 @@ function SelectionSection({ setSelectedNav }) {
     setTimeout(() => history.push(`/${navigateTo}`), 1100);
   };
 
+  const isSafari =
+    /constructor/i.test(window.HTMLElement) ||
+    (function(p) {
+      return p.toString() === "[object SafariRemoteNotification]";
+    })(
+      !window["safari"] ||
+        (typeof safari !== "undefined" && safari.pushNotification)
+    )
+      ? "safari"
+      : "que-animation";
+
   const isBiography = selected === "biography" && "selected";
   const isTimeline = selected === "timeline" && "selected";
   const isBooks = selected === "books" && "selected";
@@ -25,7 +36,7 @@ function SelectionSection({ setSelectedNav }) {
     <div className="container">
       <div className="selection-container">
         <div
-          className={`${selected && "que-animation-left"}${
+          className={`${selected && `${isSafari}-left`}${
             isBiography ? `-${isBiography}` : ""
           } item`}
         >
@@ -40,7 +51,7 @@ function SelectionSection({ setSelectedNav }) {
         </div>
 
         <div
-          className={`${selected && "que-animation-center"}${
+          className={`${selected && `${isSafari}-center`}${
             isTimeline ? `-${isTimeline}` : ""
           } item`}
         >
@@ -55,7 +66,7 @@ function SelectionSection({ setSelectedNav }) {
         </div>
 
         <div
-          className={`${selected && "que-animation-right"}${
+          className={`${selected && `${isSafari}-right`}${
             isBooks ? `-${isBooks}` : ""
           } item`}
         >

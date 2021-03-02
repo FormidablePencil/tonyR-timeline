@@ -15,8 +15,8 @@ function Books() {
 }
 
 const RenderBooks = (): any => {
-  return tRbooks.map((data) => (
-    <div className="book-container">
+  return tRbooks.map((data, index) => (
+    <div className="book-container" key={index}>
       <img src={data.image} alt="" />
       <div className="text-container">
         <p className="category">{data.category}</p>

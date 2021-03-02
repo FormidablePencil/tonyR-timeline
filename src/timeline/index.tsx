@@ -1,8 +1,8 @@
-import React, { useEffect } from "react";
+import React from "react";
+import timelineImage from "../assets/imgs/timeline.jpg";
 import TopPresent from "../reusables/top-present";
 import contentRows from "../staticData/timeline";
 import "./index.scoped.sass";
-import timelineImage from "../assets/imgs/timeline.jpg";
 
 // change the dimensions of images of topSection
 
@@ -18,8 +18,8 @@ function Timeline() {
 }
 
 const TimelineContent = (): any => {
-  return contentRows.map((row) => (
-    <div className="container-width" key={row.images.toString()}>
+  return contentRows.map((row, index) => (
+    <div className="container-width" key={index}>
       <div className="text-content">
         <h2>{row.date}</h2>
         <p className="paragraph">{row.content}</p>

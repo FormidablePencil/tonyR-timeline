@@ -1,6 +1,6 @@
 import TopPresent from "../reusables/top-present";
 import bioImage from "../assets/imgs/autobiography.jpg";
-import "./index.scoped.sass"
+import "./index.scoped.sass";
 import bioData from "../staticData/bio";
 
 function Biography() {
@@ -19,8 +19,8 @@ const RenderBioContent = () => (
     <h1>About Anthony Robbins</h1>
     <p className="bio">{bioData.bio}</p>
 
-    {bioData.moreContent.map(({ title, paragraph }) => (
-      <div className="more-content">
+    {bioData.moreContent.map(({ title, paragraph }, index) => (
+      <div key={index} className="more-content">
         <h2>{title}</h2>
         <p>{paragraph}</p>
       </div>

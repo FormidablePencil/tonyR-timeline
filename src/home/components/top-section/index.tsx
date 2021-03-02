@@ -36,7 +36,7 @@ function TopSection({ title, paragraph, image }) {
 
       {sideImages.map((item, index) => (
         <SideImage
-          key={item.image.toString()}
+          key={index}
           index={index}
           props={props}
           image={item.image}

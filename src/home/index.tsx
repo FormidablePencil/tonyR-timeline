@@ -9,7 +9,7 @@ function Home({ setSelectedNav }) {
       <TopSection
         image={TR}
         title="The legacy of Tony Robbins"
-        paragraph="kwDolor architecto voluptate magni maxime quis ab. Fuga molestias ex cumquas blanditiis amet unde Assumenda aperiam totam sapiente ea fugiat nam. Sapiente nobis autem quibusdam molestias quas, totam."
+        paragraph="Whatever you hold in your mind on a consistent basis is exactly what you will experience in your life."
       />
       <SelectionSection setSelectedNav={setSelectedNav} />
     </div>

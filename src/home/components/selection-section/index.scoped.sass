@@ -116,6 +116,56 @@
     animation-fill-mode: forwards
 
 
+
+
+.safari-center
+  opacity: 0
+  transition: opacity 1ms .5s
+  @include que-anim(1)
+
+.safari-left
+  opacity: 0
+  transition: opacity 1ms .5s
+  @include que-anim(transToCenter)
+  @media (max-width: utilities.$mediumScreenEnd)
+    @include que-anim(transDown)
+
+.safari-right
+  opacity: 0
+  transition: opacity 1ms .5s
+  @include que-anim(transToCenterOpposite)
+  @media (max-width: utilities.$mediumScreenEnd)
+    @include que-anim(transUp)
+
+
+.safari-center-selected
+  z-index: 1
+  animation: opacityAnim .5s .5s
+  animation-fill-mode: forwards
+
+.safari-left-selected
+  z-index: 1
+  animation: transToCenter .5s, opacityAnim .5s .5s
+  animation-fill-mode: forwards
+  @media (max-width: utilities.$mediumScreenEnd)
+    animation: transToCenterY .5s, opacityAnim 1s .5s
+    animation-fill-mode: forwards
+
+.safari-right-selected
+  z-index: 1
+  animation: transToCenterOpposite .5s, opacityAnim .5s .5s
+  animation-fill-mode: forwards
+  @media (max-width: utilities.$mediumScreenEnd)
+    animation: transToCenterOppositeY .5s, opacityAnim 1s .5s
+    animation-fill-mode: forwards
+
+
+
+@keyframes opacityAnim
+  to
+    opacity: 0
+
+
 @keyframes scale-anim-center
   to
     transform: scale(5)

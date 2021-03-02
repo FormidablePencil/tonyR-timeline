@@ -1,56 +1,214 @@
-@use '../../styles/utilities'
+@use '../../../styles/utilities'
 
-.outer-container
+.fade
+  animation: fade 500ms 
+  animation-fill-mode: forwards
 
 .container
-  height: 3em
-  width: 100vw
-  background-color: rgba(21, 21, 21, .8)
   display: flex
-  align-items: center
   justify-content: center
-  position: fixed
-  z-index: 2
-  top: 0
-  transform: translateY(-3em)
-  animation: trans-in 1s 1s
+  align-items: center
+  // height: calc(var(--vh, 1vh) * 100)
+  height: 100vh 
+  margin-top: 10em
 
-  animation-fill-mode: forwards
-  // @include translate-nav(true)
+  overflow: hidden
 
-  .inner-container
+.selection-container
+  display: flex
+  justify-content: space-between
+  @extend .container-width
+  @media (max-width: utilities.$mediumScreenEnd)
+    flex-direction: column
+
+  .item
+    position: relative
+    border-radius: utilities.$borderRadius
+    overflow: hidden
     display: flex
-    justify-content: flex-end
-    @extend .container-width
+    justify-content: center
+    width: 15em
+    height: 27em
+    @media (max-width: utilities.$mediumScreenEnd)
+      margin: 1em
+      width: 80vw
+      height: 22vh
 
-  .nav-item
-    margin: 0 0 0 2em
-    color: white
-    text-decoration: none
-    font-weight: 500
-    font-family: satisfy
-    font-size: 1.3em
-    cursor: pointer
-    &:hover
-      transform: scale(.1)
+    .image-container
+      position: relative
+      width: 100%
+      height: 100%
+      cursor: pointer
+      transition: transform 600ms cubic-bezier(0.33, 1, 0.68, 1)
+      &:hover
+        transform: scale(1.10)
+        transition: transform 600ms
 
-.isHidden
-  visibility: hidden
+      img
+        height: 100%
+        width: 100%
+        object-fit: cover 
 
-img
-  height: 2em
-  width: 3em
-  z-index: 2
+      .filter
+        position: absolute
+        top: 0
+        width: 100%
+        height: 100%
+        background-color: rgba(0,0,0,.5)
 
-.hide
-  transform: translateY(0)
-  transition: transform 1s
-  animation: trans-out 1s
+    h2.label
+      position: absolute
+      pointer-events: none
+      top: 45%
+      margin: 0
+      font-size: 3em
+      font-family: satisfy
+      @media (max-width: utilities.$mediumScreenEnd)
+        top: 40%
 
-.show
-@keyframes trans-out
+    h2.selected-header
+      animation: header-anim 500ms
+      animation-fill-mode: forwards
+
+@mixin que-anim($anim)
+  animation: $anim .5s
+  animation-fill-mode: forwards
+
+
+.que-animation-center
+  opacity: 0
+  transition: opacity 1ms .5s
+  @include que-anim(1)
+
+.que-animation-left
+  opacity: 0
+  transition: opacity 1ms .5s
+  @include que-anim(transToCenter)
+  @media (max-width: utilities.$mediumScreenEnd)
+    @include que-anim(transDown)
+
+.que-animation-right
+  opacity: 0
+  transition: opacity 1ms .5s
+  @include que-anim(transToCenterOpposite)
+  @media (max-width: utilities.$mediumScreenEnd)
+    @include que-anim(transUp)
+
+.que-animation-center-selected
+  animation: scale-anim-center .5s .5s
+  z-index: 1
+  animation-fill-mode: forwards
+
+.que-animation-left-selected
+  z-index: 1
+  animation: transToCenter .5s, scale-anim-left .5s .5s
+  animation-fill-mode: forwards
+  @media (max-width: utilities.$mediumScreenEnd)
+    animation: transToCenterY .5s, scale-anim-top .5s .5s
+    animation-fill-mode: forwards
+
+.que-animation-right-selected
+  z-index: 1
+  animation: transToCenterOpposite .5s, scale-anim-right .5s .5s
+  animation-fill-mode: forwards
+  @media (max-width: utilities.$mediumScreenEnd)
+    animation: transToCenterOppositeY .5s, scale-anim-bottom .5s .5s
+    animation-fill-mode: forwards
+
+
+
+
+.safari-center
+  animation: scale-anim-center .5s .5s
+  z-index: 1
+  animation-fill-mode: forwards
+
+.safari-left
+  z-index: 1
+  animation: transToCenter .5s
+  animation-fill-mode: forwards
+  @media (max-width: utilities.$mediumScreenEnd)
+    animation: transToCenterY .5s, scale-anim-top .5s .5s
+    animation-fill-mode: forwards
+
+.safari-right
+  z-index: 1
+  animation: transToCenterOpposite .5s
+  animation-fill-mode: forwards
+  @media (max-width: utilities.$mediumScreenEnd)
+    animation: transToCenterOppositeY .5s, scale-anim-bottom .5s .5s
+    animation-fill-mode: forwards
+
+
+
+@keyframes scale-anim-center
   to
-    transform: translateY(-3em)
-@keyframes trans-in
+    transform: scale(5)
+    opacity: 0
+
+@keyframes scale-anim-left
   to
+    transform: scale(5) translateX(60px)
+    opacity: 0
+
+@keyframes scale-anim-right
+  to
+    transform: scale(5) translateX(-60px)
+    opacity: 0
+
+
+@keyframes scale-anim-top
+  to
+    transform: scale(5) translateY(5vh)
+    opacity: 0
+
+@keyframes scale-anim-bottom
+  to
+    transform: scale(5) translateY(-5vh)
+    opacity: 0
+
+
+
+@keyframes transToCenter
+  from
+    transform: translateX(0px)
+  to 
+    transform: translateX(280px)
+
+@keyframes transToCenterOpposite
+  from
+    transform: translateX(0px)
+  to 
+    transform: translateX(-280px)
+
+
+@keyframes transToCenterY
+  from
     transform: translateY(0px)
+  to 
+    transform: translateY(calc(22vh + 2.0em))
+
+@keyframes transToCenterOppositeY
+  from
+    transform: translateY(0px)
+  to 
+    transform: translateY(calc(-22vh - 2.0em))
+
+
+@keyframes transUp
+  from
+    transform: translateY(0px)
+  to 
+    transform: translateY(calc(-22vh - 2.0em))
+
+
+@keyframes transDown
+  from
+    transform: translateY(0px)
+  to 
+    transform: translateY(calc(22vh + 2.0em))
+
+
+@keyframes header-anim
+  to
+    opacity: 0
