@@ -70,7 +70,7 @@ const SideImage = ({ props, image, styles, trans, index }) => {
         ...styles,
         ...transitionOpacity,
       }}
-      className="h"
+      className="side-image-container"
     >
       <img className="side-img" src={image} alt="tony robbins" />
     </animated.div>

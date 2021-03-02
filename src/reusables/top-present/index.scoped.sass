@@ -21,11 +21,15 @@
     margin: 0
     position: absolute
     font-family: satisfy
-    font-size: 4.5em
-    transform: scale(2)
+    font-size: 3.5em
     opacity: 1
-    // animation: h1-anim 1s, opacity-anim 1.3s 500ms
-    // animation-fill-mode: forwards
+    text-align: center
+    @media (min-width: utilities.$smallScreenEnd)
+      font-size: 4.5em
+      transform: scale(2)
+      animation: h1-anim 1s, opacity-anim 1.3s 500ms
+      animation-fill-mode: forwards
+
 
 @keyframes fade-in
   from

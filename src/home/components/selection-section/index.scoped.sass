@@ -8,7 +8,9 @@
   display: flex
   justify-content: center
   align-items: center
-  height: 100vh
+  height: 100vh 
+  height: calc(var(--vh, 1vh) * 100)
+
   overflow: hidden
 
 .selection-container
@@ -17,7 +19,6 @@
   @extend .container-width
   @media (max-width: utilities.$mediumScreenEnd)
     flex-direction: column
-    margin-bottom: 3em
 
   .item
     position: relative
@@ -30,7 +31,7 @@
     @media (max-width: utilities.$mediumScreenEnd)
       margin: 1em
       width: 80vw
-      height: 30vh
+      height: 22vh
 
     .image-container
       position: relative
@@ -121,7 +122,7 @@
 
 @keyframes scale-anim-left
   to
-    transform: scale(5) translateX(60px)
+    transform: scale(5) translateX(200px)
     opacity: 0
 
 @keyframes scale-anim-right
@@ -132,12 +133,12 @@
 
 @keyframes scale-anim-top
   to
-    transform: scale(5) translateY(10vh)
+    transform: scale(5) translateY(5vh)
     opacity: 0
 
 @keyframes scale-anim-bottom
   to
-    transform: scale(5) translateY(-10vh)
+    transform: scale(5) translateY(-5vh)
     opacity: 0
 
 
@@ -159,27 +160,27 @@
   from
     transform: translateY(0px)
   to 
-    transform: translateY(calc(30vh + 2.0em))
+    transform: translateY(calc(22vh + 2.0em))
 
 @keyframes transToCenterOppositeY
   from
     transform: translateY(0px)
   to 
-    transform: translateY(calc(-30vh - 2.0em))
+    transform: translateY(calc(-22vh - 2.0em))
 
 
 @keyframes transUp
   from
     transform: translateY(0px)
   to 
-    transform: translateY(calc(-30vh - 2.0em))
+    transform: translateY(calc(-22vh - 2.0em))
 
 
 @keyframes transDown
   from
     transform: translateY(0px)
   to 
-    transform: translateY(calc(30vh + 2.0em))
+    transform: translateY(calc(22vh + 2.0em))
 
 
 @keyframes header-anim

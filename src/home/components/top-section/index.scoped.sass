@@ -1,13 +1,17 @@
 @use '../../../styles/utilities'
 
 .container
-  margin-bottom: 10vh
-  width: 100%
-  height: 100vh
+  max-width: 100%
+  // height: 100vh
+  // height: 100vh
+    /* Fallback for browsers that do not support Custom Properties */
+  height: calc(var(--vh, 1vh) * 100)
   overflow: hidden
   display: flex
   align-items: center
   justify-content: center
+  @media (min-width: utilities.$smallScreenEnd)
+    margin-bottom: 10vh
 
 img.center-img
   z-index: 1
@@ -26,15 +30,19 @@ img.center-img
     left: auto
     right: auto
 
+.side-image-container
+  position: absolute
+  z-index: -1
+
 img.side-img
   width: 10em
   height: 10em
   object-fit: cover
   border-radius: utilities.$borderRadius
   filter: utilities.$imageColorFilter
-.h
-  position: absolute
-  z-index: -1
+  @media (max-width: utilities.$smallScreenEnd)
+    visibility: hidden
+    opacity: 0
 
 .block-of-text
   position: absolute
@@ -53,15 +61,16 @@ img.side-img
   h1
     font-family: satisfy
     font-size: 4em
-    line-height: 1
+    // line-height: 1
     text-align: center
     margin-left: -4.65em
-    width: 100%
-    margin-bottom: .5em
+    width: 90%
+    margin-bottom: .1em
     animation: fadeInAndUpSkewed 800ms ease-in-out .66666666s
     opacity: 0
     animation-fill-mode: forwards
     @media (max-width: utilities.$smallScreenEnd)
+      margin-top: -20px
       margin-left: 0
       text-align: center
 
@@ -69,16 +78,9 @@ img.side-img
     color: utilities.$regColor
     font-family: Tajawal-Regular
     font-size: utilities.$regFontSize
-    background-color: rgba(0, 0, 0, .7)
-    border-radius: utilities.$borderRadius
-    padding: 1em
-    max-width: 30em
-    @media(min-width: utilities.$smallScreenEnd)
-      background-color: rgba(255, 255, 255, 0)
-      width: 20em
-      opacity: 0
-      animation: fadeInAndUp 800ms ease-in-out 1.5s
-      animation-fill-mode: forwards
+    width: 20em
+    @media(max-width: utilities.$smallScreenEnd)
+      visibility: hidden
 
 $actionColor: #008EC4
 $actionColorHover: #00C7DF
@@ -97,3 +99,5 @@ $actionColorHover: #00C7DF
     transition: color 200ms
   .icon
     margin-left: .3em
+  @media(max-width: utilities.$smallScreenEnd)
+    visibility: hidden
