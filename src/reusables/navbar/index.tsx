@@ -1,9 +1,12 @@
 import { useEffect, useState } from "react";
 import { Link, useHistory, useLocation } from "react-router-dom";
+import { HiMenu } from "react-icons/hi";
+import { AiOutlineClose } from "react-icons/ai";
 import "./index.scoped.sass";
 
 function Navbar({ setSelectedNav, selectedNav }) {
   const [hideNavbar, setHideNavbar] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   let { pathname } = useLocation();
   let history = useHistory();
 
@@ -11,6 +14,7 @@ function Navbar({ setSelectedNav, selectedNav }) {
   useEffect(() => setHideNavbar(false), [pathname, setHideNavbar]);
 
   const navigate = (navigateTo) => {
+    setMobileMenuOpen(false)
     if (navigateTo === "/") setHideNavbar(true);
     else setHideNavbar(false);
     setSelectedNav(navigateTo);
@@ -39,7 +43,23 @@ function Navbar({ setSelectedNav, selectedNav }) {
         } container`}
       >
         <img src={require("../../assets/imgs/TR.png").default} alt="T.R." />
-        <div className="inner-container">
+        {!mobileMenuOpen ? (
+          <HiMenu
+            onClick={() => setMobileMenuOpen(true)}
+            size={38}
+            className="menu-icon"
+          />
+        ) : (
+          <AiOutlineClose
+            onClick={() => setMobileMenuOpen(false)}
+            size={38}
+            className="menu-icon"
+          />
+        )}
+        <div
+          className={`${!mobileMenuOpen &&
+            "hide-inner-container"} inner-container`}
+        >
           <NavItem
             text="Home"
             navigateTo="/"

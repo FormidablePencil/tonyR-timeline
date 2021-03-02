@@ -1,11 +1,27 @@
 @use '../../styles/utilities'
 
-.outer-container
+.menu-icon
+  z-index: 1
+  cursor: pointer
+  visibility: hidden
+  @media (max-width: utilities.$smallScreenEnd)
+    visibility: visible
+    position: absolute
+    right: 10px
+    top: 10px
+    color: white
+
+img
+  height: 2em
+  width: 3em
+  @media (max-width: utilities.$smallScreenEnd)
+    margin-top: 15px
+    margin-left: 10px
+    z-index: 2
 
 .container
   height: 3em
   width: 100vw
-  background-color: rgba(21, 21, 21, .8)
   display: flex
   align-items: center
   justify-content: center
@@ -14,6 +30,12 @@
   top: 0
   transform: translateY(-3em)
   animation: trans-in 1s 1s
+  background-color: rgba(21, 21, 21, .8)
+  @media (max-width: utilities.$smallScreenEnd)
+    background-color: rgba(21, 21, 21, 0)
+    height: auto
+    flex-direction: column
+    align-items: flex-start
 
   animation-fill-mode: forwards
   // @include translate-nav(true)
@@ -22,16 +44,39 @@
     display: flex
     justify-content: flex-end
     @extend .container-width
+    @media (max-width: utilities.$smallScreenEnd)
+      background-color: rgba(21, 21, 21, .8)
+      padding-top: 2em
+      flex-direction: column
+      width: 100%
+      margin: 0
+      margin-top: -3em
+      transition: transform 1s
+
+  .hide-inner-container
+    @media (max-width: utilities.$smallScreenEnd)
+      transform: translateY(-21em)
+      transition: transform 1s
 
   .nav-item
     margin: 0 0 0 2em
     text-decoration: none
+    align-self: flex-start
     color: #B5B5B5
     font-weight: 500
     font-family: satisfy
     font-size: 1.3em
     cursor: pointer
     transition: transform 300ms
+    display: flex
+    align-items: center
+    justify-content: center
+    @media (max-width: utilities.$smallScreenEnd)
+      height: 3em
+      text-align: center
+      margin: 0
+      width: 100%
+
     &:hover
       transform: scale(1.1)
       transition: transform 300ms
@@ -44,11 +89,6 @@
 
 .isHidden
   visibility: hidden
-
-img
-  height: 2em
-  width: 3em
-  z-index: 2
 
 .hide
   transform: translateY(0)
