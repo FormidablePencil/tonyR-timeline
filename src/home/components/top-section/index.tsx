@@ -3,12 +3,11 @@ import "./index.scoped.sass";
 import { animated, useSpring } from "react-spring";
 import { FiArrowRightCircle } from "react-icons/fi";
 import sideImages from "../../../staticData/floatingImgs";
-import TR from "../../../assets/imgs/tony-clap.jpg";
 import { animateScroll as scroll } from "react-scroll";
 
 const calc = (x, y) => [x - window.innerWidth / 2, y - window.innerHeight / 2];
 
-function TopSection() {
+function TopSection({ title, paragraph, image }) {
   const [props, set]: any = useSpring(() => ({
     xy: [0, 0],
     config: { mass: 30, tension: 250, friction: 140 },
@@ -25,14 +24,10 @@ function TopSection() {
       className="container"
       onMouseMove={({ clientX: x, clientY: y }) => set({ xy: calc(x, y) })}
     >
-      <img className="center-img" src={TR} alt="tony robbins" />
+      <img className="center-img" src={image} alt="tony robbins" />
       <div className="block-of-text">
-        <h1>Tony Robbins' legacy</h1>
-        <p className="about">
-          Dolor architecto voluptate magni maxime quis ab. Fuga molestias ex cum
-          quas blanditiis amet unde Assumenda aperiam totam sapiente ea itaque
-          fugiat nam. Sapiente nobis autem quibusdam molestias quas, totam.
-        </p>
+        <h1>{title}</h1>
+        <p className="about">{paragraph}</p>
         <div className="action" onClick={onClickHander}>
           Explore
           <FiArrowRightCircle className="icon" />

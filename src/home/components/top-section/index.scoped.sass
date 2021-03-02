@@ -7,6 +7,7 @@
   overflow: hidden
   display: flex
   align-items: center
+  justify-content: center
 
 img.center-img
   z-index: 1
@@ -21,6 +22,9 @@ img.center-img
   animation-fill-mode: forwards
   border-radius: utilities.$borderRadius
   filter: utilities.$imageColorFilter
+  @media (max-width: utilities.$smallScreenEnd)
+    left: auto
+    right: auto
 
 img.side-img
   width: 10em
@@ -34,29 +38,47 @@ img.side-img
 
 .block-of-text
   position: absolute
+  display: flex
+  flex-direction: column
+  height: 80vh
+  align-items: center
+  justify-content: center
   z-index: 1
   left: calc(25% + 22em)
+  @media (max-width: utilities.$smallScreenEnd)
+    justify-content: space-around
+    left: auto
+    right: auto
 
   h1
     font-family: satisfy
     font-size: 4em
-    text-align: right
     line-height: 1
+    text-align: center
     margin-left: -4.65em
-    width: 7em
+    width: 100%
     margin-bottom: .5em
     animation: fadeInAndUpSkewed 800ms ease-in-out .66666666s
     opacity: 0
     animation-fill-mode: forwards
+    @media (max-width: utilities.$smallScreenEnd)
+      margin-left: 0
+      text-align: center
 
   p.about
     color: utilities.$regColor
-    width: 20em
     font-family: Tajawal-Regular
     font-size: utilities.$regFontSize
-    opacity: 0
-    animation: fadeInAndUp 800ms ease-in-out 1.5s
-    animation-fill-mode: forwards
+    background-color: rgba(0, 0, 0, .7)
+    border-radius: utilities.$borderRadius
+    padding: 1em
+    max-width: 30em
+    @media(min-width: utilities.$smallScreenEnd)
+      background-color: rgba(255, 255, 255, 0)
+      width: 20em
+      opacity: 0
+      animation: fadeInAndUp 800ms ease-in-out 1.5s
+      animation-fill-mode: forwards
 
 $actionColor: #008EC4
 $actionColorHover: #00C7DF
