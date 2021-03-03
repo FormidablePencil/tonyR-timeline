@@ -5,6 +5,7 @@ import booksImage from "../../../assets/imgs/books.jpg";
 import "./index.scoped.sass";
 import { useHistory } from "react-router-dom";
 import { animateScroll as scroll } from "react-scroll";
+import { isSafari as isSafariBrowserDetect } from "react-device-detect";
 
 function SelectionSection({ setSelectedNav }) {
   const [selected, setSelected] = useState(null);
@@ -17,16 +18,7 @@ function SelectionSection({ setSelectedNav }) {
     setTimeout(() => history.push(`/${navigateTo}`), 1100);
   };
 
-  const isSafari =
-    /constructor/i.test(window.HTMLElement) ||
-    (function(p) {
-      return p.toString() === "[object SafariRemoteNotification]";
-    })(
-      !window["safari"] ||
-        (typeof safari !== "undefined" && safari.pushNotification)
-    )
-      ? "safari"
-      : "que-animation";
+  const isSafari = isSafariBrowserDetect ? "safari" : "que-animation";
 
   const isBiography = selected === "biography" && "selected";
   const isTimeline = selected === "timeline" && "selected";
