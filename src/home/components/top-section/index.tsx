@@ -58,10 +58,11 @@ const SideImage = ({ props, image, styles, trans, index }) => {
   };
 
   useEffect(() => {
-    setTimeout(() => {
+    let timeout = setTimeout(() => {
       setTransitionReady(true);
     }, 2000);
-  }, []);
+    return () => clearTimeout(timeout);
+  }, [setTransitionReady]);
 
   return (
     <animated.div
